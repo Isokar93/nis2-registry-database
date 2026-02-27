@@ -56,7 +56,7 @@ Inoltre il sistema consente la conservazione dello storico delle variazioni ai f
 ## Export CSV
 
 L’esportazione avviene tramite interrogazione della vista profiloCompleto.
-Il comando \copy, richiamato dallo script batch `export_nis2.bat`, genera un file CSV nel percorso locale (C:\temp) configurato nello script 06_export_csv chiamato profilo.csv
+Il comando \copy, richiamato dallo script batch `export_nis2.bat`, genera un file CSV nel percorso locale (C:\export) chiamato profilo.csv
 
 
 
