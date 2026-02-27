@@ -5,7 +5,6 @@
 Il presente progetto implementa un database relazionale finalizzato alla gestione strutturata delle informazioni richieste dalla direttiva NIS2.
 L’obiettivo è fornire una base dati centralizzata per la catalogazione di:
 
-
 - Asset 
 - Servizi erogati
 - Fornitori terzi
@@ -15,8 +14,6 @@ L’obiettivo è fornire una base dati centralizzata per la catalogazione di:
 Il sistema integra meccanismi di versioning per la tracciabilità delle modifiche e consente l’estrazione automatizzata dei profili informativi in formato CSV.
 
 ---
-
-## Struttura del progetto
 
 ## Struttura del progetto
 
@@ -36,7 +33,6 @@ nis2-registry-db/
 └── docs/
     └── E-R_diagram.png
 ```
-
 La suddivisione modulare consente una chiara separazione tra definizione dello schema, ottimizzazione, versioning, popolamento dati ed esportazione.
 
 ---
@@ -75,18 +71,4 @@ Il progetto include meccanismi di tracciamento delle modifiche tramite:
 - Funzioni SQL
 - Trigger automatici
 
-Questo consente la conservazione delle modifiche ai fini di audit e controllo
-
-## Descrizione
-
-Il presente progetto implementa un database relazionale finalizzato alla gestione strutturata delle informazioni richieste dalla direttiva NIS2.
-L’obiettivo è fornire una base dati centralizzata per la catalogazione di:
-
-
-- Asset 
-- Servizi erogati
-- Fornitori terzi
-- Responsabilità organizzative
-- Relazioni di dipendenza tra le entità
-
-Il sistema integra meccanismi di versioning per la tracciabilità delle modifiche e consente l’estrazione automatizzata dei profili informativi in formato CSV.
+Questo consente la conservazione delle modifiche ai fini di storicizzazione di tutte le modifiche.
