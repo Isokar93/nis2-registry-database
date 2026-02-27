@@ -18,18 +18,24 @@ Il sistema integra meccanismi di versioning per la tracciabilità delle modifich
 
 ## Struttura del progetto
 
+## Struttura del progetto
+
+```
 nis2-registry-db/
-│
 ├── sql/
-│ ├── 01_create_tables.sql
-│ ├── 02_indexes.sql
-│ ├── 03_versioning.sql
-│ ├── 04_insert_data.sql
-│ ├── 05_views.sql
-│ └── 06_export_csv.sql
+│   ├── 01_create_tables/
+│   ├── 02_indexes/
+│   ├── 03_versioning/
+│   ├── 04_insert_data/
+│   ├── 05_views/
+│   └── 06_export_csv/
 │
-└── batch/
-  ├── export_nis2.bat
+├── batch/
+│   └── export_nis2.bat
+│
+└── docs/
+    └── E-R_diagram.png
+```
 
 La suddivisione modulare consente una chiara separazione tra definizione dello schema, ottimizzazione, versioning, popolamento dati ed esportazione.
 
@@ -44,21 +50,10 @@ La suddivisione modulare consente una chiara separazione tra definizione dello s
 
 ---
 
-## Ordine di esecuzione degli script
-
-1. `01_create_tables` – Creazione tabelle e vincoli.
-2. `02_indexes` – Creazione indici per ottimizzazione.
-3. `03_versioning` – Implementazione storico e trigger.
-4. `04_insert_data` – Popolamento dati di test.
-5. `05_views` – Creazione vista `profilocompleto`.
-6. `06_export_csv` – Esportazione CSV tramite comando COPY.
-
----
-
 ## Export CSV
 
 L’esportazione avviene tramite interrogazione della vista `profilocompleto`.
-Il comando `COPY` genera un file CSV nel percorso specificato all’interno dello script `06_export_csv.sql`.
+Il comando `\copy` genera un file CSV nel percorso specificato all’interno dello script `06_export_csv`.
 
 ---
 
@@ -81,3 +76,17 @@ Il progetto include meccanismi di tracciamento delle modifiche tramite:
 - Trigger automatici
 
 Questo consente la conservazione delle modifiche ai fini di audit e controllo
+
+## Descrizione
+
+Il presente progetto implementa un database relazionale finalizzato alla gestione strutturata delle informazioni richieste dalla direttiva NIS2.
+L’obiettivo è fornire una base dati centralizzata per la catalogazione di:
+
+
+- Asset 
+- Servizi erogati
+- Fornitori terzi
+- Responsabilità organizzative
+- Relazioni di dipendenza tra le entità
+
+Il sistema integra meccanismi di versioning per la tracciabilità delle modifiche e consente l’estrazione automatizzata dei profili informativi in formato CSV.
