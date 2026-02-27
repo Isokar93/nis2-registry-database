@@ -1,16 +1,12 @@
-# Registry Database Project
-
+# NIS2 Registry database
 ## Descrizione
-
 Il presente progetto implementa un database relazionale finalizzato alla gestione strutturata delle informazioni richieste dalla direttiva NIS2.
 L’obiettivo è fornire una base dati centralizzata per la catalogazione di:
-
 - Asset 
 - Servizi erogati
 - Fornitori terzi
 - Responsabilità organizzative
 - Relazioni di dipendenza tra le entità
-
 Il sistema integra meccanismi di versioning per la tracciabilità delle modifiche e consente l’estrazione automatizzata dei profili informativi in formato CSV.
 
 ---
@@ -33,7 +29,18 @@ nis2-registry-db/
 └── docs/
     └── E-R_diagram.png
 ```
-La suddivisione modulare consente una chiara separazione tra definizione dello schema, ottimizzazione, versioning, popolamento dati ed esportazione.
+
+La suddivisione modulare consente una chiara separazione tra:
+
+- definizione dello schema
+- ottimizzazione tramite indici
+- gestione dello storico (versioning)
+- popolamento dati
+- creazione viste
+- esportazione dei profili
+
+
+Inoltre il sistema consente la conservazione dello storico delle variazioni ai fini di audit e tracciabilità.
 
 ---
 
@@ -48,27 +55,9 @@ La suddivisione modulare consente una chiara separazione tra definizione dello s
 
 ## Export CSV
 
-L’esportazione avviene tramite interrogazione della vista `profilocompleto`.
-Il comando `\copy` genera un file CSV nel percorso specificato all’interno dello script `06_export_csv`.
+L’esportazione avviene tramite interrogazione della vista profiloCompleto.
+Il comando \copy, richiamato dallo script batch `export_nis2.bat`, genera un file CSV nel percorso locale (C:\temp) configurato nello script 06_export_csv chiamato profilo.csv
 
----
 
-## Automazione
 
-La cartella `batch/` contiene script per l’esecuzione automatizzata:
 
-- `export_nis2.bat` → ambiente Windows
-
-Gli script consentono l’integrazione con sistemi di schedulazione
-
----
-
-## Versioning
-
-Il progetto include meccanismi di tracciamento delle modifiche tramite:
-
-- Tabelle di storico
-- Funzioni SQL
-- Trigger automatici
-
-Questo consente la conservazione delle modifiche ai fini di storicizzazione di tutte le modifiche.
