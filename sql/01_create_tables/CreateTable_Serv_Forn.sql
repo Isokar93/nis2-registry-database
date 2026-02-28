@@ -10,4 +10,5 @@ CREATE TABLE SERVIZIO_FORNITORE (
 
     CONSTRAINT fk_sf_fornitore
         FOREIGN KEY (id_fornitore)
-        REFERENCES 
+        REFERENCES FORNITORE(id_fornitore)
+);
